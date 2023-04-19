@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
-import { Canvas } from '@react-three/fiber'
+import { useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, useGLTF, Center, Environment, AccumulativeShadows, RandomizedLight } from '@react-three/drei'
+import { easing } from 'maath'
 
 export function Model(props) {
 	const { nodes, materials } = useGLTF('/BellHelmet.glb')
@@ -36,13 +37,26 @@ function Backdrop() {
 export default function App() {
 	return (
 		<Canvas eventSource={document.getElementById('root')} eventPrefix='client' shadows>
-			<Center>
-				<Model />
-				<Backdrop />
-			</Center>
+			<CamRig>
+				<Center>
+					<Model />
+					<Backdrop />
+				</Center>
+			</CamRig>
 			<ambientLight intensity={0.5} />
 			<Environment preset='studio' />
 			<OrbitControls />
 		</Canvas>
 	)
+}
+
+function CamRig({ children }) {
+	const group = useRef()
+
+	useFrame((state, delta) => {
+		easing.dampE(group.current.rotation, [-state.pointer.y / 10, state.pointer.x / 5, 0], 0.25, delta)
+		console.log()
+	})
+
+	return <group ref={group}>{children}</group>
 }

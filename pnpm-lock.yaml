@@ -13,6 +13,9 @@ dependencies:
   '@types/three':
     specifier: ^0.149.0
     version: 0.149.0
+  maath:
+    specifier: ^0.5.3
+    version: 0.5.3(@types/three@0.149.0)(three@0.148.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
