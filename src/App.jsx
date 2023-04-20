@@ -1,13 +1,15 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, useGLTF, Center, Environment, AccumulativeShadows, RandomizedLight } from '@react-three/drei'
+import { OrbitControls, useGLTF, Center, Environment, AccumulativeShadows, RandomizedLight, MeshTransmissionMaterial } from '@react-three/drei'
 import { easing } from 'maath'
 
 export function Model(props) {
 	const { nodes, materials } = useGLTF('/BellHelmet.glb')
 	return (
 		<group {...props} dispose={null}>
-			<mesh castShadow receiveShadow geometry={nodes.Visor.geometry} material={materials} />
+			<mesh castShadow receiveShadow geometry={nodes.Visor.geometry}>
+				<MeshTransmissionMaterial transmissionSampler />
+			</mesh>
 			<mesh castShadow receiveShadow geometry={nodes.Outer_Shell.geometry} material={materials['Outer Shell']} />
 			<mesh castShadow receiveShadow geometry={nodes.model002.geometry} material={materials.Stinching} />
 			<mesh castShadow receiveShadow geometry={nodes.model002_1.geometry} material={materials['Inner Shell']} />
