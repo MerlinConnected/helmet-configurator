@@ -38,7 +38,7 @@ function Backdrop() {
 
 export default function App() {
 	return (
-		<Canvas eventSource={document.getElementById('root')} eventPrefix='client' shadows>
+		<Canvas eventSource={document.getElementById('root')} eventPrefix='client' shadows camera={{ fov: 60, position: [0, 0, 2] }}>
 			<CamRig>
 				<Center>
 					<Model />
@@ -47,7 +47,7 @@ export default function App() {
 			</CamRig>
 			<ambientLight intensity={0.5} />
 			<Environment preset='studio' />
-			<OrbitControls />
+			{/* <OrbitControls /> */}
 		</Canvas>
 	)
 }
@@ -57,7 +57,6 @@ function CamRig({ children }) {
 
 	useFrame((state, delta) => {
 		easing.dampE(group.current.rotation, [-state.pointer.y / 10, state.pointer.x / 5, 0], 0.25, delta)
-		console.log()
 	})
 
 	return <group ref={group}>{children}</group>
