@@ -26,7 +26,21 @@ export default function OuterShell(props) {
 		}
 	)
 
-	const albedo = snap.color === 'blue' ? blueAlbedo : redAlbedo
+	const greenAlbedo = useTexture(
+		'helmet-outer-shell-albedo-green.jpg',
+		(texture) => {
+			texture.flipY = false
+			texture.encoding = THREE.sRGBEncoding
+			texture.anisotropy = 16
+		}
+	)
+
+	const albedo =
+		snap.color === 'red'
+			? redAlbedo
+			: snap.color === 'blue'
+			? blueAlbedo
+			: greenAlbedo
 
 	const normal = useTexture('helmet-outer-shell-normal.png', (texture) => {
 		texture.flipY = false
@@ -57,7 +71,8 @@ export default function OuterShell(props) {
 					normalMap={normal}
 					metalnessMap={metalness}
 					roughnessMap={roughness}
-					clearcoat={1}
+					roughness={1.5}
+					clearcoat={snap.clearcoat ? 1 : 0}
 				/>
 			</mesh>
 		</group>

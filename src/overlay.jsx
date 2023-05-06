@@ -8,39 +8,69 @@ export default function Overlay() {
 
 function Intro() {
 	return (
-		<div className='intro-container'>
-			<h1>Bell Helmet</h1>
-			<button
-				onClick={() => {
-					state.intro = false
-				}}
-			>
-				Configure !
-			</button>
+		<div className='container'>
+			<div>
+				<h1>Bell Helmet</h1>
+				<button
+					onClick={() => {
+						state.intro = false
+					}}
+				>
+					Configure !
+				</button>
+			</div>
 		</div>
 	)
 }
 
 function Customizer() {
 	return (
-		<div className='customizer-container'>
-			<h1>Customizer</h1>
-			<button
-				onClick={() => {
-					state.color = 'red'
-					console.log(state.color)
-				}}
-			>
-				Red !
-			</button>
-			<button
-				onClick={() => {
-					state.color = 'blue'
-					console.log(state.color)
-				}}
-			>
-				Blue !
-			</button>
+		<div className='container'>
+			<div>
+				<h1>Customizer</h1>
+				<button
+					onClick={() => {
+						state.intro = true
+					}}
+				>
+					Back
+				</button>
+			</div>
+			<div>
+				<button
+					onClick={() => {
+						state.color = 'red'
+						// console.log(state.color)
+					}}
+				>
+					Red !
+				</button>
+				<button
+					onClick={() => {
+						state.color = 'blue'
+						// console.log(state.color)
+					}}
+				>
+					Blue !
+				</button>
+				<button
+					onClick={() => {
+						state.color = 'green'
+						// console.log(state.color)
+					}}
+				>
+					Green !
+				</button>
+			</div>
+			<div>
+				<button
+					onClick={() => {
+						state.clearcoat = !state.clearcoat
+					}}
+				>
+					Clearcoat (toggle) !
+				</button>
+			</div>
 		</div>
 	)
 }
