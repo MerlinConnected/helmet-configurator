@@ -4,6 +4,7 @@ const state = proxy({
 	intro: true,
 	color: ['blue', 'red', 'green'],
 	clearcoat: true,
+	envmap: 'studio',
 })
 
 export { state }

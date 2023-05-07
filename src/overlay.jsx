@@ -16,7 +16,7 @@ function Intro() {
 						state.intro = false
 					}}
 				>
-					Configure !
+					Configure 🡢
 				</button>
 			</div>
 		</div>
@@ -24,6 +24,16 @@ function Intro() {
 }
 
 function Customizer() {
+	const envmaps = [
+		'sunset',
+		'dawn',
+		'warehouse',
+		'forest',
+		'studio',
+		'city',
+		'park',
+	]
+	const colors = ['red', 'blue', 'green']
 	return (
 		<div className='container'>
 			<div>
@@ -33,34 +43,19 @@ function Customizer() {
 						state.intro = true
 					}}
 				>
-					Back
+					Back 🡠
 				</button>
 			</div>
 			<div>
-				<button
-					onClick={() => {
-						state.color = 'red'
-						// console.log(state.color)
-					}}
-				>
-					Red !
-				</button>
-				<button
-					onClick={() => {
-						state.color = 'blue'
-						// console.log(state.color)
-					}}
-				>
-					Blue !
-				</button>
-				<button
-					onClick={() => {
-						state.color = 'green'
-						// console.log(state.color)
-					}}
-				>
-					Green !
-				</button>
+				{colors.map((color) => (
+					<button
+						onClick={() => {
+							state.color = color
+						}}
+					>
+						{color}
+					</button>
+				))}
 			</div>
 			<div>
 				<button
@@ -70,6 +65,17 @@ function Customizer() {
 				>
 					Clearcoat (toggle) !
 				</button>
+			</div>
+			<div>
+				{envmaps.map((envmap) => (
+					<button
+						onClick={() => {
+							state.envmap = envmap
+						}}
+					>
+						{envmap}
+					</button>
+				))}
 			</div>
 		</div>
 	)

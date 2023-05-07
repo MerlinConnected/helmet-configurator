@@ -1,16 +1,19 @@
-import { useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import {
 	OrbitControls,
 	Center,
 	Environment,
 	AccumulativeShadows,
 	RandomizedLight,
+	Float,
 } from '@react-three/drei'
-import { easing } from 'maath'
+
 import OuterShell from './OuterShell'
 import Insides from './Insides'
 import Visor from './Visor'
+
+import { state } from './store'
+import { useSnapshot } from 'valtio'
 
 function Backdrop() {
 	return (
@@ -33,39 +36,26 @@ function Backdrop() {
 }
 
 export default function App() {
+	const snap = useSnapshot(state)
 	return (
 		<Canvas
 			eventSource={document.getElementById('root')}
 			eventPrefix='client'
 			shadows
-			camera={{ fov: 60, position: [0, 0, 1.9] }}
+			camera={{ fov: 60, position: [0, 0, 2.1] }}
 		>
-			{/* <CamRig> */}
 			<Center>
-				<OuterShell />
-				<Insides />
-				<Visor />
+				<Float floatIntensity={0.3} rotationIntensity={0.4}>
+					<OuterShell />
+					<Insides />
+					<Visor />
+				</Float>
 				<Backdrop />
 			</Center>
-			{/* </CamRig> */}
+
 			<ambientLight intensity={0.5} />
-			<Environment preset='studio' />
+			<Environment preset={snap.envmap} />
 			<OrbitControls enablePan={false} enableZoom={false} />
 		</Canvas>
 	)
-}
-
-function CamRig({ children }) {
-	const group = useRef()
-
-	useFrame((state, delta) => {
-		easing.dampE(
-			group.current.rotation,
-			[-state.pointer.y / 30, state.pointer.x / 40, 0],
-			0.25,
-			delta
-		)
-	})
-
-	return <group ref={group}>{children}</group>
 }
