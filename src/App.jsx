@@ -2,111 +2,14 @@ import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
 	OrbitControls,
-	useGLTF,
 	Center,
 	Environment,
 	AccumulativeShadows,
 	RandomizedLight,
-	MeshTransmissionMaterial,
-	useTexture,
-	Decal,
 } from '@react-three/drei'
 import { easing } from 'maath'
-import OuterShell from './Model'
-
-// export function Model(props) {
-// 	const { nodes, materials } = useGLTF('/BellHelmet.glb')
-// 	const albedo = useTexture('helmet-outer-shell-albedo-red.jpg')
-// 	const normal = useTexture('helmet-outer-shell-normal.jpg')
-// 	const metalness = useTexture('helmet-outer-shell-metalness.jpg')
-// 	const roughness = useTexture('helmet-outer-shell-roughness.jpg')
-
-// 	return (
-// 		<group {...props} dispose={null}>
-// 			<mesh castShadow receiveShadow geometry={nodes.Visor.geometry}>
-// 				<MeshTransmissionMaterial transmissionSampler />
-// 			</mesh>
-// 			<mesh castShadow receiveShadow geometry={nodes.Outer_Shell.geometry}>
-// 				<meshPhysicalMaterial
-// 					map={albedo}
-// 					normalMap={normal}
-// 					metalnessMap={metalness}
-// 					roughnessMap={roughness}
-// 					clearcoat={1}
-// 				/>
-// 			</mesh>
-
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002.geometry}
-// 				material={materials.Stinching}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_1.geometry}
-// 				material={materials['Inner Shell']}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_2.geometry}
-// 				material={materials.Plastics}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_3.geometry}
-// 				material={materials['Black Metal']}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_4.geometry}
-// 				material={materials.Spring}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_5.geometry}
-// 				material={materials.Screw}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_6.geometry}
-// 				material={materials.Rubber}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_7.geometry}
-// 				material={materials['Inside Fabric']}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_8.geometry}
-// 				material={materials['Outside Fabric']}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_9.geometry}
-// 				material={materials.Inlays}
-// 			/>
-// 			<mesh
-// 				castShadow
-// 				receiveShadow
-// 				geometry={nodes.model002_10.geometry}
-// 				material={materials['Shell Plastics']}
-// 			/>
-// 		</group>
-// 	)
-// }
-
-// useGLTF.preload('/BellHelmet.glb')
+import OuterShell from './OuterShell'
+import Insides from './Insides'
 
 function Backdrop() {
 	return (
@@ -138,8 +41,8 @@ export default function App() {
 		>
 			{/* <CamRig> */}
 			<Center>
-				{/* <Model /> */}
 				<OuterShell />
+				<Insides />
 				<Backdrop />
 			</Center>
 			{/* </CamRig> */}
