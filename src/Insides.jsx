@@ -43,36 +43,30 @@ export default function Insides(props) {
 				castShadow
 				receiveShadow
 				geometry={nodes.insides_5.geometry}
-				material={materials.Screw}
-			/>
-			<mesh
-				castShadow
-				receiveShadow
-				geometry={nodes.insides_6.geometry}
 				material={materials.Rubber}
 			/>
 			<mesh
 				castShadow
 				receiveShadow
-				geometry={nodes.insides_7.geometry}
+				geometry={nodes.insides_6.geometry}
 				material={materials['Inside Fabric']}
 			/>
 			<mesh
 				castShadow
 				receiveShadow
-				geometry={nodes.insides_8.geometry}
+				geometry={nodes.insides_7.geometry}
 				material={materials['Outside Fabric']}
 			/>
 			<mesh
 				castShadow
 				receiveShadow
-				geometry={nodes.insides_9.geometry}
+				geometry={nodes.insides_8.geometry}
 				material={materials.Inlays}
 			/>
 			<mesh
 				castShadow
 				receiveShadow
-				geometry={nodes.insides_10.geometry}
+				geometry={nodes.insides_9.geometry}
 				material={materials['Shell Plastics']}
 			/>
 		</group>

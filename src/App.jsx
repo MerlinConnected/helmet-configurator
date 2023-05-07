@@ -10,6 +10,7 @@ import {
 import { easing } from 'maath'
 import OuterShell from './OuterShell'
 import Insides from './Insides'
+import Visor from './Visor'
 
 function Backdrop() {
 	return (
@@ -37,18 +38,19 @@ export default function App() {
 			eventSource={document.getElementById('root')}
 			eventPrefix='client'
 			shadows
-			camera={{ fov: 60, position: [0, 0, 2] }}
+			camera={{ fov: 60, position: [0, 0, 1.9] }}
 		>
 			{/* <CamRig> */}
 			<Center>
 				<OuterShell />
 				<Insides />
+				<Visor />
 				<Backdrop />
 			</Center>
 			{/* </CamRig> */}
 			<ambientLight intensity={0.5} />
 			<Environment preset='studio' />
-			<OrbitControls />
+			<OrbitControls enablePan={false} enableZoom={false} />
 		</Canvas>
 	)
 }
