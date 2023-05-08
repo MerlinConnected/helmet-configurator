@@ -53,7 +53,7 @@ export default function App() {
 				<Backdrop />
 			</Center>
 
-			<ambientLight intensity={0.5} />
+			<ambientLight intensity={1} />
 			<Environment preset={snap.envmap} />
 			<OrbitControls enablePan={false} enableZoom={false} />
 		</Canvas>

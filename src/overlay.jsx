@@ -24,15 +24,7 @@ function Intro() {
 }
 
 function Customizer() {
-	const envmaps = [
-		'sunset',
-		'dawn',
-		'warehouse',
-		'forest',
-		'studio',
-		'city',
-		'park',
-	]
+	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
 	const colors = ['red', 'blue', 'green']
 	return (
 		<div className='container'>
