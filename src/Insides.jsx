@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
-import { useLoader } from '@react-three/fiber'
-import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import * as THREE from 'three'
 
 export default function Insides(props) {
 	const { nodes, materials } = useGLTF('/insides.glb')
+
+	//INSIDE FABRIC
 
 	const insideFabricAlbedo = useTexture(
 		'/tex/inside-fabric/helmet-inside-fabric-albedo.jpg',
@@ -24,6 +24,8 @@ export default function Insides(props) {
 		}
 	)
 
+	//OUTSIDE FABRIC
+
 	const outsideFabricAlbedo = useTexture(
 		'/tex/outside-fabric/helmet-outside-fabric-albedo.jpg',
 		(texture) => {
@@ -40,6 +42,9 @@ export default function Insides(props) {
 			texture.anisotropy = 16
 		}
 	)
+
+	//SHELL PLASTICS
+
 	const shellPlasticRoughness = useTexture(
 		'/tex/shell-plastics/helmet-shell-plastics-roughness.jpg',
 		(texture) => {
@@ -52,31 +57,37 @@ export default function Insides(props) {
 
 	return (
 		<group {...props} dispose={null}>
+			{/* Stiching */}
 			<mesh castShadow receiveShadow geometry={nodes.insides.geometry}>
 				<meshPhysicalMaterial color={'red'} />
 			</mesh>
+			{/* Inside Shell */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_1.geometry}>
 				<meshPhysicalMaterial color={'#020202'} roughness={0.6} metalness={0} />
 			</mesh>
+			{/* Plastics */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_2.geometry}>
 				<meshPhysicalMaterial color={'#020202'} roughness={0.6} />
 			</mesh>
+			{/* Black Metal */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_3.geometry}>
 				<meshPhysicalMaterial color={'#020202'} metalness={1} roughness={0.2} />
 			</mesh>
-
+			{/* Springs */}
 			<mesh
 				castShadow
 				receiveShadow
 				geometry={nodes.insides_4.geometry}
 				material={materials.Spring}
 			/>
+			{/* Rubber */}
 			<mesh
 				castShadow
 				receiveShadow
 				geometry={nodes.insides_5.geometry}
 				material={materials.Rubber}
 			/>
+			{/* Inside Fabric */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_6.geometry}>
 				<meshPhysicalMaterial
 					map={insideFabricAlbedo}
@@ -86,6 +97,7 @@ export default function Insides(props) {
 					sheen={1}
 				/>
 			</mesh>
+			{/* Outside Fabric */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_7.geometry}>
 				<meshPhysicalMaterial
 					map={outsideFabricAlbedo}
@@ -94,6 +106,7 @@ export default function Insides(props) {
 					sheen={1}
 				/>
 			</mesh>
+			{/* Inlays */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_8.geometry}>
 				<meshPhysicalMaterial
 					color={'black'}
@@ -102,6 +115,7 @@ export default function Insides(props) {
 					metalness={0}
 				/>
 			</mesh>
+			{/* Shell Plastics */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_9.geometry}>
 				<meshPhysicalMaterial
 					color={'#101010'}
