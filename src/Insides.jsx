@@ -40,6 +40,15 @@ export default function Insides(props) {
 			texture.anisotropy = 16
 		}
 	)
+	const shellPlasticRoughness = useTexture(
+		'/tex/shell-plastics/helmet-shell-plastics-roughness.jpg',
+		(texture) => {
+			texture.flipY = false
+			texture.encoding = THREE.NoColorSpace
+
+			texture.anisotropy = 16
+		}
+	)
 
 	return (
 		<group {...props} dispose={null}>
@@ -96,7 +105,8 @@ export default function Insides(props) {
 			<mesh castShadow receiveShadow geometry={nodes.insides_9.geometry}>
 				<meshPhysicalMaterial
 					color={'#101010'}
-					roughness={0.3}
+					// roughness={0.3}
+					roughnessMap={shellPlasticRoughness}
 					specularIntensity={0.3}
 					metalness={0}
 				/>
