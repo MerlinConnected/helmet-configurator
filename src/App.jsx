@@ -51,11 +51,6 @@ export default function App() {
 						<OuterShell />
 						<Insides />
 						<Visor />
-						<HexColorPicker
-							className='picker'
-							// color={snap.items[snap.current]}
-							// onChange={(color) => (state.items[snap.current] = color)}
-						/>
 					</Float>
 					<Backdrop />
 				</Center>

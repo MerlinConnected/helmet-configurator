@@ -1,5 +1,6 @@
 import { useSnapshot } from 'valtio'
 import { state } from './store'
+import { HexColorPicker } from 'react-colorful'
 
 export default function Overlay() {
 	const snap = useSnapshot(state)
@@ -69,6 +70,7 @@ function Customizer() {
 					</button>
 				))}
 			</div>
+			<HexColorPicker className='picker' />
 		</div>
 	)
 }
