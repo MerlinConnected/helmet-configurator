@@ -51,13 +51,24 @@ export default function App() {
 						<OuterShell />
 						<Insides />
 						<Visor />
+						<HexColorPicker
+							className='picker'
+							// color={snap.items[snap.current]}
+							// onChange={(color) => (state.items[snap.current] = color)}
+						/>
 					</Float>
 					<Backdrop />
 				</Center>
 
 				<ambientLight intensity={1} />
 				<Environment preset={snap.envmap} />
-				<OrbitControls enablePan={false} enableZoom={false} />
+				<OrbitControls
+					enablePan={false}
+					minPolarAngle={0}
+					maxPolarAngle={Math.PI / 1.8}
+					minDistance={1.5}
+					maxDistance={2.5}
+				/>
 			</Canvas>
 			<Loader />
 		</>

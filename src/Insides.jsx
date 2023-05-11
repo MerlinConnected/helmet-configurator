@@ -53,19 +53,33 @@ export default function Insides(props) {
 		<group {...props} dispose={null}>
 			{/* Stiching */}
 			<mesh castShadow receiveShadow geometry={nodes.insides.geometry}>
-				<meshPhysicalMaterial color={'red'} />
+				<meshPhysicalMaterial color={'red'} side={THREE.DoubleSide} />
 			</mesh>
 			{/* Inside Shell */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_1.geometry}>
-				<meshPhysicalMaterial color={'#020202'} roughness={0.6} metalness={0} />
+				<meshPhysicalMaterial
+					color={'#020202'}
+					roughness={0.6}
+					metalness={0}
+					side={THREE.DoubleSide}
+				/>
 			</mesh>
 			{/* Plastics */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_2.geometry}>
-				<meshPhysicalMaterial color={'#020202'} roughness={0.6} />
+				<meshPhysicalMaterial
+					color={'#020202'}
+					roughness={0.6}
+					side={THREE.DoubleSide}
+				/>
 			</mesh>
 			{/* Black Metal */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_3.geometry}>
-				<meshPhysicalMaterial color={'#020202'} metalness={1} roughness={0.2} />
+				<meshPhysicalMaterial
+					color={'#020202'}
+					metalness={1}
+					roughness={0.2}
+					side={THREE.DoubleSide}
+				/>
 			</mesh>
 			{/* Springs */}
 			<mesh
@@ -80,6 +94,7 @@ export default function Insides(props) {
 				receiveShadow
 				geometry={nodes.insides_5.geometry}
 				material={materials.Rubber}
+				side={THREE.DoubleSide}
 			/>
 			{/* Inside Fabric */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_6.geometry}>
@@ -89,6 +104,7 @@ export default function Insides(props) {
 					normalScale={[0.2, 0.2]}
 					specularIntensity={0.1}
 					sheen={1}
+					side={THREE.DoubleSide}
 				/>
 			</mesh>
 			{/* Outside Fabric */}
@@ -98,6 +114,7 @@ export default function Insides(props) {
 					normalMap={outsideFabricNormal}
 					specularIntensity={0.1}
 					sheen={1}
+					side={THREE.DoubleSide}
 				/>
 			</mesh>
 			{/* Inlays */}
@@ -107,6 +124,7 @@ export default function Insides(props) {
 					roughness={0.5}
 					specularIntensity={0.7}
 					metalness={0}
+					side={THREE.DoubleSide}
 				/>
 			</mesh>
 			{/* Shell Plastics */}
