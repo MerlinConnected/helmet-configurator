@@ -12,7 +12,6 @@ export default function Insides(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 	const insideFabricNormal = useTexture(
@@ -20,7 +19,6 @@ export default function Insides(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 
@@ -31,7 +29,6 @@ export default function Insides(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 	const outsideFabricNormal = useTexture(
@@ -39,7 +36,6 @@ export default function Insides(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 
@@ -50,8 +46,6 @@ export default function Insides(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.NoColorSpace
-
-			texture.anisotropy = 16
 		}
 	)
 
@@ -123,6 +117,9 @@ export default function Insides(props) {
 					roughnessMap={shellPlasticRoughness}
 					specularIntensity={0.3}
 					metalness={0}
+					clearcoat={1}
+					clearcoatRoughness={0.1}
+					side={THREE.DoubleSide}
 				/>
 			</mesh>
 		</group>

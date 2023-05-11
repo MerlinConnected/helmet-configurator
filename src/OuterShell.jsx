@@ -13,7 +13,6 @@ export default function OuterShell(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 
@@ -22,7 +21,6 @@ export default function OuterShell(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 
@@ -31,7 +29,6 @@ export default function OuterShell(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 
@@ -47,7 +44,6 @@ export default function OuterShell(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 	const metalness = useTexture(
@@ -55,7 +51,6 @@ export default function OuterShell(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 	const roughness = useTexture(
@@ -63,7 +58,6 @@ export default function OuterShell(props) {
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
-			texture.anisotropy = 16
 		}
 	)
 	return (
@@ -76,6 +70,7 @@ export default function OuterShell(props) {
 					roughnessMap={roughness}
 					roughness={1.5}
 					clearcoat={snap.clearcoat ? 1 : 0}
+					side={THREE.DoubleSide}
 				/>
 			</mesh>
 		</group>
