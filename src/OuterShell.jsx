@@ -62,7 +62,7 @@ export default function OuterShell(props) {
 	)
 	return (
 		<group {...props} dispose={null}>
-			<mesh castShadow receiveShadow geometry={nodes['Outer-Shell'].geometry}>
+			<mesh castShadow receiveShadow geometry={nodes.Outer_Shell.geometry}>
 				<meshPhysicalMaterial
 					map={albedo}
 					normalMap={normal}
