@@ -6,6 +6,7 @@ import {
 	AccumulativeShadows,
 	RandomizedLight,
 	Float,
+	Loader,
 } from '@react-three/drei'
 
 import OuterShell from './OuterShell'
@@ -38,24 +39,27 @@ function Backdrop() {
 export default function App() {
 	const snap = useSnapshot(state)
 	return (
-		<Canvas
-			eventSource={document.getElementById('root')}
-			eventPrefix='client'
-			shadows
-			camera={{ fov: 60, position: [0, 0, 2.1] }}
-		>
-			<Center>
-				<Float floatIntensity={0.3} rotationIntensity={0.4}>
-					<OuterShell />
-					<Insides />
-					<Visor />
-				</Float>
-				<Backdrop />
-			</Center>
+		<>
+			<Canvas
+				eventSource={document.getElementById('root')}
+				eventPrefix='client'
+				shadows
+				camera={{ fov: 60, position: [0, 0, 2.1] }}
+			>
+				<Center>
+					<Float floatIntensity={0.3} rotationIntensity={0.4}>
+						<OuterShell />
+						<Insides />
+						<Visor />
+					</Float>
+					<Backdrop />
+				</Center>
 
-			<ambientLight intensity={1} />
-			<Environment preset={snap.envmap} />
-			<OrbitControls enablePan={false} enableZoom={false} />
-		</Canvas>
+				<ambientLight intensity={1} />
+				<Environment preset={snap.envmap} />
+				<OrbitControls enablePan={false} enableZoom={false} />
+			</Canvas>
+			<Loader />
+		</>
 	)
 }
