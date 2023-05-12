@@ -1,8 +1,12 @@
 import React, { useRef } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
+import { proxy, useSnapshot } from 'valtio'
+
+import { state } from './store'
 
 export default function Insides(props) {
+	const snap = useSnapshot(state)
 	const { nodes, materials } = useGLTF('/insides.glb')
 
 	//INSIDE FABRIC
@@ -53,7 +57,7 @@ export default function Insides(props) {
 		<group {...props} dispose={null}>
 			{/* Stiching */}
 			<mesh castShadow receiveShadow geometry={nodes.insides.geometry}>
-				<meshPhysicalMaterial color={'red'} side={THREE.DoubleSide} />
+				<meshPhysicalMaterial color={snap.stiching} />
 			</mesh>
 			{/* Inside Shell */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_1.geometry}>

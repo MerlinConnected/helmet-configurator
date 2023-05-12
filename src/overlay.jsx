@@ -27,6 +27,7 @@ function Intro() {
 function Customizer() {
 	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
 	const colors = ['red', 'blue', 'green']
+	const snap = useSnapshot(state)
 	return (
 		<div className='container'>
 			<div>
@@ -70,7 +71,11 @@ function Customizer() {
 					</button>
 				))}
 			</div>
-			<HexColorPicker className='picker' />
+			<HexColorPicker
+				className='picker'
+				color={snap.stiching}
+				onChange={(color) => (state.stiching = color)}
+			/>
 		</div>
 	)
 }

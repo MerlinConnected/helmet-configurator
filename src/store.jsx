@@ -5,6 +5,7 @@ const state = proxy({
 	color: ['blue', 'red', 'green'],
 	clearcoat: true,
 	envmap: 'studio',
+	stiching: '#ffffff',
 })
 
 export { state }
