@@ -28,6 +28,7 @@ function Customizer() {
 	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
 	const colors = ['red', 'blue', 'green']
 	const snap = useSnapshot(state)
+
 	return (
 		<div className='container'>
 			<div>

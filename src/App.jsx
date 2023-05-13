@@ -13,6 +13,8 @@ import OuterShell from './OuterShell'
 import Insides from './Insides'
 import Visor from './Visor'
 
+import Overlay from './overlay'
+
 import { state } from './store'
 import { useSnapshot } from 'valtio'
 
@@ -40,6 +42,7 @@ export default function App() {
 	const snap = useSnapshot(state)
 	return (
 		<>
+			<Overlay />
 			<Canvas
 				eventSource={document.getElementById('root')}
 				eventPrefix='client'
