@@ -24,6 +24,7 @@ export default function Visor(props) {
 					roughness={0}
 					ior={1.5}
 					thickness={0.01}
+					opacity={0}
 				/>
 			</mesh>
 		</group>
