@@ -74,8 +74,8 @@ function Customizer() {
 			</div>
 			<HexColorPicker
 				className='picker'
-				color={snap.stiching}
-				onChange={(color) => (state.stiching = color)}
+				color={snap.stitching}
+				onChange={(color) => (state.stitching = color)}
 			/>
 		</div>
 	)

@@ -55,9 +55,9 @@ export default function Insides(props) {
 
 	return (
 		<group {...props} dispose={null}>
-			{/* Stiching */}
+			{/* stitching */}
 			<mesh castShadow receiveShadow geometry={nodes.insides.geometry}>
-				<meshPhysicalMaterial color={snap.stiching} />
+				<meshPhysicalMaterial color={snap.stitching} />
 			</mesh>
 			{/* Inside Shell */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_1.geometry}>
