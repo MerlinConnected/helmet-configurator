@@ -42,13 +42,7 @@ export default function App() {
 	const snap = useSnapshot(state)
 	return (
 		<>
-			<Overlay />
-			<Canvas
-				eventSource={document.getElementById('root')}
-				eventPrefix='client'
-				shadows
-				camera={{ fov: 60, position: [0, 0, 2.1] }}
-			>
+			<Canvas shadows camera={{ fov: 60, position: [0, 0, 2.1] }}>
 				<Center>
 					<Float floatIntensity={0.3} rotationIntensity={0.4}>
 						<OuterShell />
@@ -68,6 +62,7 @@ export default function App() {
 					maxDistance={2.5}
 				/>
 			</Canvas>
+			<Overlay />
 			<Loader />
 		</>
 	)
