@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useThree } from '@react-three/fiber'
 import {
 	OrbitControls,
 	Center,
@@ -8,6 +8,10 @@ import {
 	Float,
 	Loader,
 } from '@react-three/drei'
+
+import { Suspense } from 'react'
+
+import { useSpring } from '@react-spring/three'
 
 import OuterShell from './OuterShell'
 import Insides from './Insides'
@@ -38,29 +42,50 @@ function Backdrop() {
 	)
 }
 
+function ZoomWithOrbit() {
+	const { gl, camera } = useThree()
+	useSpring({
+		from: { z: 30 },
+		x: -5,
+		y: 4,
+		z: 4,
+		onFrame: ({ x, y, z }) => {
+			camera.position.x = x
+			camera.position.y = y
+			camera.position.z = z
+		},
+	})
+	return (
+		<OrbitControls
+			enablePan={false}
+			minPolarAngle={0}
+			maxPolarAngle={Math.PI / 1.8}
+			minDistance={1.5}
+			maxDistance={2.5}
+			target={[0, 0, 0]}
+			args={[camera, gl.domElement]}
+		/>
+	)
+}
+
 export default function App() {
 	const snap = useSnapshot(state)
 	return (
 		<>
 			<Canvas shadows camera={{ fov: 60, position: [0, 0, 2.1] }}>
-				<Center>
-					<Float floatIntensity={0.3} rotationIntensity={0.4}>
-						<OuterShell />
-						<Insides />
-						<Visor />
-					</Float>
-					<Backdrop />
-				</Center>
-
+				<Suspense fallback={null}>
+					<Center>
+						<Float floatIntensity={0.3} rotationIntensity={0.4}>
+							<OuterShell />
+							<Insides />
+							<Visor />
+						</Float>
+						<Backdrop />
+					</Center>
+					<ZoomWithOrbit />
+				</Suspense>
 				<ambientLight intensity={1} />
 				<Environment preset={snap.envmap} />
-				<OrbitControls
-					enablePan={false}
-					minPolarAngle={0}
-					maxPolarAngle={Math.PI / 1.8}
-					minDistance={1.5}
-					maxDistance={2.5}
-				/>
 			</Canvas>
 			<Overlay />
 			<Loader />

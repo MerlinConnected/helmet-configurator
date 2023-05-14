@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@react-spring/three':
+    specifier: ^9.7.2
+    version: 9.7.2(@react-three/fiber@8.11.0)(react@18.2.0)(three@0.148.0)
   '@react-three/drei':
     specifier: ^9.56.18
     version: 9.56.18(@react-three/fiber@8.11.0)(@types/three@0.149.0)(react-dom@18.2.0)(react@18.2.0)(three@0.148.0)
