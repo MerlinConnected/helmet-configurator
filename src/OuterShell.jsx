@@ -3,6 +3,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
 import { state } from './store'
 import * as THREE from 'three'
+import Sticker from './Sticker'
 
 export default function OuterShell(props) {
 	const snap = useSnapshot(state)
@@ -71,6 +72,18 @@ export default function OuterShell(props) {
 					roughness={1.5}
 					clearcoat={snap.clearcoat ? 1 : 0}
 					side={THREE.DoubleSide}
+				/>
+				<Sticker
+					url='/tex/stickers/red-bull-logo.png'
+					position={[0.4, 0.03, 0.35]}
+					scale={0.42}
+					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
+				/>
+				<Sticker
+					url='/tex/stickers/red-bull-logo.png'
+					position={[-0.4, 0.03, 0.35]}
+					scale={0.42}
+					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
 				/>
 			</mesh>
 		</group>
