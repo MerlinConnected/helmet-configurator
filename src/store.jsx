@@ -5,7 +5,7 @@ const state = proxy({
 	color: ['blue', 'red', 'green'],
 	clearcoat: true,
 	envmap: 'studio',
-	stitching: '#ffffff',
+	stitching: '#595959',
 	bellSticker: true,
 	redBullSticker: true,
 })

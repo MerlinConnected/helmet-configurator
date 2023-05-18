@@ -1,6 +1,7 @@
 import { useSnapshot } from 'valtio'
 import { state } from './store'
 import { HexColorPicker } from 'react-colorful'
+import { useState } from 'react'
 
 export default function Overlay() {
 	const snap = useSnapshot(state)
@@ -28,6 +29,11 @@ function Customizer() {
 	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
 	const colors = ['red', 'blue', 'green']
 	const snap = useSnapshot(state)
+	const [isActive, setActive] = useState(false)
+
+	const toggleClass = () => {
+		setActive(!isActive)
+	}
 
 	return (
 		<div className='container'>
@@ -44,8 +50,10 @@ function Customizer() {
 			<div>
 				{colors.map((color) => (
 					<button
+						className={isActive ? 'active' : null}
 						onClick={() => {
 							state.color = color
+							toggleClass()
 						}}
 					>
 						{color}
@@ -72,11 +80,11 @@ function Customizer() {
 					</button>
 				))}
 			</div>
-			<HexColorPicker
+			{/* <HexColorPicker
 				className='picker'
 				color={snap.stitching}
 				onChange={(color) => (state.stitching = color)}
-			/>
+			/> */}
 			<div>
 				<button
 					onClick={() => {
