@@ -85,6 +85,13 @@ export default function OuterShell(props) {
 					scale={0.42}
 					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
 				/>
+				<Sticker
+					url='/tex/stickers/bell-logo.png'
+					position={[0, 0.75, 0.35]}
+					scale={0.3}
+					rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}
+					clearcoat={1}
+				/>
 			</mesh>
 		</group>
 	)
