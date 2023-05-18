@@ -1,9 +1,12 @@
 import React, { useRef } from 'react'
-import { useGLTF, useTexture } from '@react-three/drei'
-import { useSnapshot } from 'valtio'
-import { state } from './store'
 import * as THREE from 'three'
-import Sticker from './Sticker'
+
+import { useGLTF, useTexture, Decal } from '@react-three/drei'
+import { useSnapshot } from 'valtio'
+
+import { state } from './store'
+
+import { BellSticker, RedBullSticker } from './Sticker'
 
 export default function OuterShell(props) {
 	const snap = useSnapshot(state)
@@ -47,6 +50,7 @@ export default function OuterShell(props) {
 			texture.encoding = THREE.sRGBEncoding
 		}
 	)
+
 	const metalness = useTexture(
 		'/tex/outer-shell/helmet-outer-shell-metalness.jpg',
 		(texture) => {
@@ -54,6 +58,7 @@ export default function OuterShell(props) {
 			texture.encoding = THREE.sRGBEncoding
 		}
 	)
+
 	const roughness = useTexture(
 		'/tex/outer-shell/helmet-outer-shell-roughness.webp',
 		(texture) => {
@@ -61,6 +66,7 @@ export default function OuterShell(props) {
 			texture.encoding = THREE.sRGBEncoding
 		}
 	)
+
 	return (
 		<group {...props} dispose={null}>
 			<mesh castShadow receiveShadow geometry={nodes.Outer_Shell.geometry}>
@@ -73,25 +79,9 @@ export default function OuterShell(props) {
 					clearcoat={snap.clearcoat ? 1 : 0}
 					side={THREE.DoubleSide}
 				/>
-				<Sticker
-					url='/tex/stickers/red-bull-logo.png'
-					position={[0.4, 0.03, 0.35]}
-					scale={0.42}
-					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
-				/>
-				<Sticker
-					url='/tex/stickers/red-bull-logo.png'
-					position={[-0.4, 0.03, 0.35]}
-					scale={0.42}
-					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
-				/>
-				<Sticker
-					url='/tex/stickers/bell-logo.png'
-					position={[0, 0.75, 0.35]}
-					scale={0.3}
-					rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}
-					clearcoat={1}
-				/>
+
+				<BellSticker />
+				<RedBullSticker />
 			</mesh>
 		</group>
 	)

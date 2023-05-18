@@ -77,6 +77,24 @@ function Customizer() {
 				color={snap.stitching}
 				onChange={(color) => (state.stitching = color)}
 			/>
+			<div>
+				<button
+					onClick={() => {
+						state.bellSticker = !state.bellSticker
+						console.log(state.bellSticker)
+					}}
+				>
+					Bell Sticker
+				</button>
+				<button
+					onClick={() => {
+						state.redBullSticker = !state.redBullSticker
+						console.log(state.redBullSticker)
+					}}
+				>
+					RedBull Stickers
+				</button>
+			</div>
 		</div>
 	)
 }
