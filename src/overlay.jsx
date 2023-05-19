@@ -29,10 +29,24 @@ function Customizer() {
 	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
 	const colors = ['red', 'blue', 'green']
 	const snap = useSnapshot(state)
-	const [isActive, setActive] = useState(false)
+	const [isClearcoatActive, setClearcoatActive] = useState(false)
+	const [isBellStickerActive, setBellStickerActive] = useState(false)
+	const [isRedBullStickerActive, setRedBullStickerActive] = useState(false)
 
-	const toggleClass = () => {
-		setActive(!isActive)
+	const handleColorClick = (color) => {
+		setActiveColor(color)
+	}
+
+	const handleClearcoatClick = () => {
+		setClearcoatActive(!isClearcoatActive)
+	}
+
+	const handleBellStickerClick = () => {
+		setBellStickerActive(!isBellStickerActive)
+	}
+
+	const handleRedBullStickerClick = () => {
+		setRedBullStickerActive(!isRedBullStickerActive)
 	}
 
 	return (
@@ -50,10 +64,10 @@ function Customizer() {
 			<div>
 				{colors.map((color) => (
 					<button
-						className={isActive ? 'active' : null}
+						key={color}
+						className={snap.color === color ? 'active' : ''}
 						onClick={() => {
 							state.color = color
-							toggleClass()
 						}}
 					>
 						{color}
@@ -62,8 +76,10 @@ function Customizer() {
 			</div>
 			<div>
 				<button
+					className={isClearcoatActive ? 'active' : null}
 					onClick={() => {
 						state.clearcoat = !state.clearcoat
+						handleClearcoatClick()
 					}}
 				>
 					Clearcoat (toggle) !
@@ -72,6 +88,8 @@ function Customizer() {
 			<div>
 				{envmaps.map((envmap) => (
 					<button
+						key={envmap}
+						className={snap.envmap === envmap ? 'active' : ''}
 						onClick={() => {
 							state.envmap = envmap
 						}}
@@ -87,17 +105,19 @@ function Customizer() {
 			/> */}
 			<div>
 				<button
+					className={isBellStickerActive ? 'active' : null}
 					onClick={() => {
 						state.bellSticker = !state.bellSticker
-						console.log(state.bellSticker)
+						handleBellStickerClick()
 					}}
 				>
 					Bell Sticker
 				</button>
 				<button
+					className={isRedBullStickerActive ? 'active' : null}
 					onClick={() => {
 						state.redBullSticker = !state.redBullSticker
-						console.log(state.redBullSticker)
+						handleRedBullStickerClick()
 					}}
 				>
 					RedBull Stickers
