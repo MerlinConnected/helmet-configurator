@@ -13,7 +13,7 @@ export default function Insides(props) {
 	//INSIDE FABRIC
 
 	const insideFabricAlbedo = useTexture(
-		'/tex/inside-fabric/helmet-inside-fabric-albedo.jpg',
+		'/tex/inside-fabric/helmet-inside-fabric-albedo.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
@@ -47,7 +47,7 @@ export default function Insides(props) {
 	//SHELL PLASTICS
 
 	const shellPlasticRoughness = useTexture(
-		'/tex/shell-plastics/helmet-shell-plastics-roughness.jpg',
+		'/tex/shell-plastics/helmet-shell-plastics-roughness.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
@@ -141,7 +141,8 @@ export default function Insides(props) {
 					specularIntensity={0.3}
 					metalness={0}
 					clearcoat={1}
-					clearcoatRoughness={0.1}
+					clearcoatRoughness={0.9}
+					clearcoatMap={shellPlasticRoughness}
 					side={THREE.DoubleSide}
 				/>
 			</mesh>

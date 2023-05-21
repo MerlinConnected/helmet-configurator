@@ -44,7 +44,7 @@ export default function OuterShell(props) {
 			: greenAlbedo
 
 	const normal = useTexture(
-		'/tex/outer-shell/helmet-outer-shell-normal.png',
+		'/tex/outer-shell/helmet-outer-shell-normal.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
