@@ -6,8 +6,8 @@ const state = proxy({
 	clearcoat: true,
 	envmap: 'studio',
 	stitching: '#595959',
-	bellSticker: true,
-	redBullSticker: true,
+	bellSticker: false,
+	redBullSticker: false,
 })
 
 export { state }

@@ -11,7 +11,7 @@ function BellSticker() {
 		return (
 			<Decal
 				position={[0, 0.75, 0.35]}
-				scale={0}
+				scale={0.3}
 				rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}
 			>
 				<meshPhysicalMaterial
@@ -33,7 +33,7 @@ function BellSticker() {
 		return (
 			<Decal
 				position={[0, 0.75, 0.35]}
-				scale={0.3}
+				scale={0}
 				rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}
 			>
 				<meshPhysicalMaterial
@@ -64,7 +64,7 @@ function RedBullSticker() {
 			<>
 				<Decal
 					position={[0.4, 0.03, 0.35]}
-					scale={0}
+					scale={0.42}
 					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
 				>
 					<meshPhysicalMaterial
@@ -84,7 +84,7 @@ function RedBullSticker() {
 
 				<Decal
 					position={[-0.4, 0.03, 0.35]}
-					scale={0}
+					scale={0.42}
 					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
 				>
 					<meshPhysicalMaterial
@@ -108,7 +108,7 @@ function RedBullSticker() {
 			<>
 				<Decal
 					position={[0.4, 0.03, 0.35]}
-					scale={0.42}
+					scale={0}
 					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
 				>
 					<meshPhysicalMaterial
@@ -128,7 +128,7 @@ function RedBullSticker() {
 
 				<Decal
 					position={[-0.4, 0.03, 0.35]}
-					scale={0.42}
+					scale={0}
 					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
 				>
 					<meshPhysicalMaterial
