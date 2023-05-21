@@ -16,15 +16,13 @@ export default function Visor(props) {
 				material={materials.Screw}
 			/>
 			<mesh castShadow receiveShadow geometry={nodes.visor_1.geometry}>
-				{/* <meshPhysicalMaterial
+				<meshPhysicalMaterial
 					transmission={1}
-					metalness={0}
+					metalness={0.02}
 					roughness={0}
-					ior={1.5}
-					thickness={0.01}
-					opacity={0}
-				/> */}
-				<meshBasicMaterial reflectivity={1} transparent={true} opacity={0} />
+					ior={1.1}
+					thickness={0.03}
+				/>
 			</mesh>
 		</group>
 	)
