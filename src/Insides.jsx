@@ -1,8 +1,9 @@
 import React, { useRef } from 'react'
+
 import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
-import { proxy, useSnapshot } from 'valtio'
 
+import { proxy, useSnapshot } from 'valtio'
 import { state } from './store'
 
 export default function Insides(props) {
@@ -19,7 +20,7 @@ export default function Insides(props) {
 		}
 	)
 	const insideFabricNormal = useTexture(
-		'/tex/inside-fabric/helmet-inside-fabric-normal.png',
+		'/tex/inside-fabric/helmet-inside-fabric-normal.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
@@ -29,14 +30,14 @@ export default function Insides(props) {
 	//OUTSIDE FABRIC
 
 	const outsideFabricAlbedo = useTexture(
-		'/tex/outside-fabric/helmet-outside-fabric-albedo.jpg',
+		'/tex/outside-fabric/helmet-outside-fabric-albedo.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
 		}
 	)
 	const outsideFabricNormal = useTexture(
-		'/tex/outside-fabric/helmet-outside-fabric-normal.png',
+		'/tex/outside-fabric/helmet-outside-fabric-normal.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
@@ -49,7 +50,7 @@ export default function Insides(props) {
 		'/tex/shell-plastics/helmet-shell-plastics-roughness.jpg',
 		(texture) => {
 			texture.flipY = false
-			texture.encoding = THREE.NoColorSpace
+			texture.encoding = THREE.sRGBEncoding
 		}
 	)
 

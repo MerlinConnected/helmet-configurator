@@ -13,7 +13,7 @@ export default function OuterShell(props) {
 	const { nodes } = useGLTF('/outer-shell.glb')
 
 	const redAlbedo = useTexture(
-		'/tex/outer-shell/helmet-outer-shell-albedo-red.jpg',
+		'/tex/outer-shell/helmet-outer-shell-albedo-red.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
@@ -21,7 +21,7 @@ export default function OuterShell(props) {
 	)
 
 	const blueAlbedo = useTexture(
-		'/tex/outer-shell/helmet-outer-shell-albedo-blue.jpg',
+		'/tex/outer-shell/helmet-outer-shell-albedo-blue.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
@@ -29,7 +29,7 @@ export default function OuterShell(props) {
 	)
 
 	const greenAlbedo = useTexture(
-		'/tex/outer-shell/helmet-outer-shell-albedo-green.jpg',
+		'/tex/outer-shell/helmet-outer-shell-albedo-green.webp',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
@@ -44,7 +44,7 @@ export default function OuterShell(props) {
 			: greenAlbedo
 
 	const normal = useTexture(
-		'/tex/outer-shell/helmet-outer-shell-normal.webp',
+		'/tex/outer-shell/helmet-outer-shell-normal.png',
 		(texture) => {
 			texture.flipY = false
 			texture.encoding = THREE.sRGBEncoding
