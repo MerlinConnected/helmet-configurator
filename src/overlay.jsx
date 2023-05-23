@@ -1,7 +1,6 @@
 import { useSnapshot } from 'valtio'
 import { state } from './store'
 import { HexColorPicker } from 'react-colorful'
-import { useState } from 'react'
 
 export default function Overlay() {
 	const snap = useSnapshot(state)
@@ -29,25 +28,6 @@ function Customizer() {
 	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
 	const colors = ['red', 'blue', 'green']
 	const snap = useSnapshot(state)
-	const [isClearcoatActive, setClearcoatActive] = useState(false)
-	const [isBellStickerActive, setBellStickerActive] = useState(false)
-	const [isRedBullStickerActive, setRedBullStickerActive] = useState(false)
-
-	const handleColorClick = (color) => {
-		setActiveColor(color)
-	}
-
-	const handleClearcoatClick = () => {
-		setClearcoatActive(!isClearcoatActive)
-	}
-
-	const handleBellStickerClick = () => {
-		setBellStickerActive(!isBellStickerActive)
-	}
-
-	const handleRedBullStickerClick = () => {
-		setRedBullStickerActive(!isRedBullStickerActive)
-	}
 
 	return (
 		<div className='container'>
@@ -76,10 +56,9 @@ function Customizer() {
 			</div>
 			<div>
 				<button
-					className={isClearcoatActive ? 'active' : null}
+					className={state.clearcoat ? 'active' : ''}
 					onClick={() => {
 						state.clearcoat = !state.clearcoat
-						handleClearcoatClick()
 					}}
 				>
 					Clearcoat (toggle) !
@@ -105,19 +84,18 @@ function Customizer() {
 			/> */}
 			<div>
 				<button
-					className={isBellStickerActive ? 'active' : null}
+					className={state.bellSticker ? 'active' : ''}
 					onClick={() => {
 						state.bellSticker = !state.bellSticker
-						handleBellStickerClick()
 					}}
 				>
 					Bell Sticker
 				</button>
+
 				<button
-					className={isRedBullStickerActive ? 'active' : null}
+					className={state.redBullSticker ? 'active' : ''}
 					onClick={() => {
 						state.redBullSticker = !state.redBullSticker
-						handleRedBullStickerClick()
 					}}
 				>
 					RedBull Stickers
