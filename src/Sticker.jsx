@@ -18,8 +18,6 @@ function BellSticker() {
 					map-flipY={false}
 					map-anisotropy={16}
 					roughness={0.6}
-					// clearcoat={1}
-					clearcoatRoughness={0.8}
 					metalness={1}
 					toneMapped={true}
 				/>
@@ -36,8 +34,6 @@ function BellSticker() {
 					map-flipY={false}
 					map-anisotropy={16}
 					roughness={0.6}
-					// clearcoat={1}
-					clearcoatRoughness={0.8}
 					metalness={1}
 					toneMapped={true}
 				/>
