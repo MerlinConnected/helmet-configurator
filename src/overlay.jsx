@@ -1,6 +1,7 @@
 import { useSnapshot } from 'valtio'
 import { state } from './store'
 import { HexColorPicker } from 'react-colorful'
+import { useState } from 'react'
 
 export default function Overlay() {
 	const snap = useSnapshot(state)
@@ -29,6 +30,10 @@ function Customizer() {
 	const colors = ['red', 'blue', 'green']
 	const snap = useSnapshot(state)
 
+	const [redBullSticker, setRedBullSticker] = useState(false)
+	const [bellSticker, setBellSticker] = useState(false)
+	const [clearcoat, setClearcoat] = useState(false)
+
 	return (
 		<div className='container'>
 			<div>
@@ -56,8 +61,9 @@ function Customizer() {
 			</div>
 			<div>
 				<button
-					className={state.clearcoat ? 'active' : ''}
+					className={clearcoat ? 'active' : ''}
 					onClick={() => {
+						setClearcoat(!clearcoat)
 						state.clearcoat = !state.clearcoat
 					}}
 				>
@@ -84,8 +90,9 @@ function Customizer() {
 			/> */}
 			<div>
 				<button
-					className={state.bellSticker ? 'active' : ''}
+					className={bellSticker ? 'active' : ''}
 					onClick={() => {
+						setBellSticker(!bellSticker)
 						state.bellSticker = !state.bellSticker
 					}}
 				>
@@ -93,8 +100,9 @@ function Customizer() {
 				</button>
 
 				<button
-					className={state.redBullSticker ? 'active' : ''}
+					className={redBullSticker ? 'active' : ''}
 					onClick={() => {
+						setRedBullSticker(!redBullSticker)
 						state.redBullSticker = !state.redBullSticker
 					}}
 				>
