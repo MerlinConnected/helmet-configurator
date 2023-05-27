@@ -73,7 +73,7 @@ export default function OuterShell(props) {
 				<meshPhysicalMaterial
 					map={albedo}
 					normalMap={normal}
-					metalnessMap={metalness}
+					// metalnessMap={metalness}
 					roughnessMap={roughness}
 					roughness={1.5}
 					clearcoat={snap.clearcoat ? 1 : 0}
