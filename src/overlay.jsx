@@ -14,11 +14,12 @@ function Intro() {
 			<div>
 				<h1>Bell Helmet</h1>
 				<button
+					className='btn btn_primary'
 					onClick={() => {
 						state.intro = false
 					}}
 				>
-					Configure 🡢
+					Customize
 				</button>
 			</div>
 		</div>
@@ -39,6 +40,7 @@ function Customizer() {
 			<div>
 				<h1>Customizer</h1>
 				<button
+					className='btn btn_primary'
 					onClick={() => {
 						state.intro = true
 					}}

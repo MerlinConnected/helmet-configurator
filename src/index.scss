@@ -1,5 +1,8 @@
 @import url('https://rsms.me/inter/inter.css');
 
+$color-primary: #cd2e2e;
+$color-light: #f3f3f3;
+
 html,
 body,
 #root {
@@ -33,22 +36,24 @@ body {
 	button {
 		margin: 0.5rem;
 	}
-	button {
-		background-color: rgb(68, 68, 68);
-		color: white;
-		text-transform: capitalize;
-		border-radius: 5px;
-		padding: 0.3rem;
-		&:hover {
-			background-color: rgb(114, 114, 114);
+	.btn {
+		padding: 0.75rem 3rem;
+		border-radius: 4px;
+		&_primary {
+			background-color: $color-primary;
+			color: $color-light;
+			&:hover {
+				transition: 0.2s ease-in-out;
+				box-shadow: 0px 4px 29px rgba(213, 47, 51, 0.25);
+			}
 		}
 	}
-	.picker {
-		// display: block;
-		margin: 1rem;
-	}
-	.active {
-		background-color: #e0e0e0;
-		color: #111111;
-	}
+}
+.picker {
+	// display: block;
+	margin: 1rem;
+}
+.active {
+	background-color: #e0e0e0;
+	color: #111111;
 }
