@@ -38,15 +38,20 @@ function Customizer() {
 	return (
 		<div className='container'>
 			<div>
-				<h1>Customizer</h1>
 				<button
-					className='btn btn_primary'
+					className='btn btn_return'
 					onClick={() => {
 						state.intro = true
 					}}
 				>
-					Back 🡠
+					Back to home
 				</button>
+				<h2>CONFIGURE YOUR RACE STAR DLX FLEX</h2>
+				<p>
+					Designed for the everyday commuter who likes to chase checkers on the
+					weekend, the Race Star DLX Flex packs premium head protection with a
+					modern aesthetic that simply makes you look fast.
+				</p>
 			</div>
 			<div>
 				{colors.map((color) => (
