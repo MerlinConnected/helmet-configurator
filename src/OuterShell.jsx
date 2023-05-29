@@ -76,7 +76,8 @@ export default function OuterShell(props) {
 					// metalnessMap={metalness}
 					roughnessMap={roughness}
 					roughness={1.5}
-					clearcoat={snap.clearcoat ? 1 : 0}
+					clearcoat={1}
+					clearcoatRoughness={snap.clearcoat ? 0 : 0.45}
 					side={THREE.DoubleSide}
 				/>
 

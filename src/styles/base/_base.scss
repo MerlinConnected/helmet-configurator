@@ -54,7 +54,7 @@ body,
 .container {
 	width: rem(20);
 	margin-right: auto;
-	margin-left: auto;
+	margin-left: rem(3);
 	@media (max-width: $to-huge) {
 		// width: 84vw;
 	}
@@ -64,4 +64,18 @@ body,
 	@media (max-width: $to-tiny) {
 		// width: 92vw;
 	}
+}
+
+h3 {
+	font-weight: 500;
+	font-size: rem(1);
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+::selection {
+	background: $color-primary;
+	color: $color-light;
 }
