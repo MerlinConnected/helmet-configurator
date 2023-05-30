@@ -35,7 +35,7 @@ function Intro() {
 
 function Customizer() {
 	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
-	const colors = ['white', 'green', 'red', 'blue', 'orange', 'purple']
+	const colors = ['grey', 'green', 'red', 'blue', 'brown', 'purple']
 	const size = ['XS', 'S', 'SM', 'M', 'L', 'XL']
 
 	const snap = useSnapshot(state)
@@ -59,120 +59,137 @@ function Customizer() {
 					</div>
 				</header>
 				<div className='container'>
-					<div className='title-container'>
-						<h2>CONFIGURE YOUR RACE STAR DLX FLEX</h2>
-						<p>
-							Designed for the everyday commuter who likes to chase checkers on
-							the weekend, the Race Star DLX Flex packs premium head protection
-							with a modern aesthetic that simply makes you look fast.
-						</p>
-					</div>
-					<div className='grid'>
-						<hr />
-						<div className='content-container'>
-							<h3>Finish</h3>
-							<p>{snap.color}</p>
-							<div className='color-container'>
-								{colors.map((color) => (
+					<div>
+						<div className='title-container'>
+							<h2>CONFIGURE YOUR RACE STAR DLX FLEX</h2>
+							<p>
+								Designed for the everyday commuter who likes to chase checkers
+								on the weekend, the Race Star DLX Flex packs premium head
+								protection with a modern aesthetic that simply makes you look
+								fast.
+							</p>
+						</div>
+						<div className='grid'>
+							<hr />
+							<div className='content-container'>
+								<h3>Finish</h3>
+								<p>{snap.color}</p>
+								<div className='color-container'>
+									{colors.map((color) => (
+										<button
+											key={color}
+											className={snap.color === color ? 'active' : ''}
+											onClick={() => {
+												state.color = color
+											}}
+										>
+											<img src={`./images/item-${color}.png`} alt={color} />
+										</button>
+									))}
+								</div>
+							</div>
+							<hr />
+							<div className='content-container'>
+								<h3>Aspect</h3>
+								<p>Chose between mat or shiny</p>
+								<div className='clearcoat-container'>
 									<button
-										key={color}
-										className={snap.color === color ? 'active' : ''}
+										className={clearcoat ? '' : 'active'}
 										onClick={() => {
-											state.color = color
+											setClearcoat(false)
+											state.clearcoat = true
 										}}
 									>
-										<img src={`./images/item-${color}.png`} alt={color} />
+										With clearcoat
 									</button>
-								))}
+									<button
+										className={clearcoat ? 'active' : ''}
+										onClick={() => {
+											setClearcoat(true)
+											state.clearcoat = false
+										}}
+									>
+										Without clearcoat
+									</button>
+								</div>
 							</div>
-						</div>
-						<hr />
-						<div className='content-container'>
-							<h3>Aspect</h3>
-							<p>Chose between mat or shiny</p>
-							<div className='clearcoat-container'>
-								<button
-									className={clearcoat ? '' : 'active'}
-									onClick={() => {
-										setClearcoat(false)
-										state.clearcoat = true
-									}}
-								>
-									With clearcoat
-								</button>
-								<button
-									className={clearcoat ? 'active' : ''}
-									onClick={() => {
-										setClearcoat(true)
-										state.clearcoat = false
-									}}
-								>
-									Without clearcoat
-								</button>
-							</div>
-						</div>
-						<hr />
-						{/* <div>
-							{envmaps.map((envmap) => (
-								<button
-									key={envmap}
-									className={snap.envmap === envmap ? 'active' : ''}
-									onClick={() => {
-										state.envmap = envmap
-									}}
-								>
-									{envmap}
-								</button>
-							))}
-						</div> */}
-						{/* <HexColorPicker
+							<hr />
+							{/* <HexColorPicker
 							className='picker'
 							color={snap.stitching}
 							onChange={(color) => (state.stitching = color)}
 						/> */}
-						<div className='content-container'>
-							<h3>Size</h3>
-							<p>To fit your noggin like a glove</p>
-							<div className='size-container'>
-								{size.map((size) => (
+							<div className='content-container'>
+								<h3>Size</h3>
+								<p>To fit your noggin like a glove</p>
+								<div className='size-container'>
+									{size.map((size) => (
+										<button
+											key={size}
+											className={snap.size === size ? 'active' : ''}
+											onClick={() => {
+												state.size = size
+											}}
+										>
+											{size}
+										</button>
+									))}
+								</div>
+							</div>
+							<hr />
+							<div className='content-container'>
+								<h3>Stickers</h3>
+								<p>To at least look like you're fast</p>
+								<div className='clearcoat-container'>
 									<button
-										key={size}
-										className={snap.size === size ? 'active' : ''}
+										className={bellSticker ? 'active' : ''}
 										onClick={() => {
-											state.size = size
+											setBellSticker(!bellSticker)
+											state.bellSticker = !state.bellSticker
 										}}
 									>
-										{size}
+										Bell
 									</button>
-								))}
+									<button
+										className={redBullSticker ? 'active' : ''}
+										onClick={() => {
+											setRedBullSticker(!redBullSticker)
+											state.redBullSticker = !state.redBullSticker
+										}}
+									>
+										Redbull
+									</button>
+								</div>
 							</div>
-						</div>
-						<hr />
-						<div className='content-container'>
-							<h3>Stickers</h3>
-							<p>To at least look like you're fast</p>
-							<div className='clearcoat-container'>
-								<button
-									className={bellSticker ? 'active' : ''}
-									onClick={() => {
-										setBellSticker(!bellSticker)
-										state.bellSticker = !state.bellSticker
-									}}
-								>
-									Bell
-								</button>
-								<button
-									className={redBullSticker ? 'active' : ''}
-									onClick={() => {
-										setRedBullSticker(!redBullSticker)
-										state.redBullSticker = !state.redBullSticker
-									}}
-								>
-									Redbull
-								</button>
+							<hr />
+							<div className='content-container'>
+								<div className='flex'>
+									<div>
+										<h3>Total :</h3>
+										<p>Excluding VAT.</p>
+									</div>
+									<p>€ 1,299.0</p>
+								</div>
+								<div className='total-container'>
+									<button>Find a dealer</button>
+									<button>Add to basket</button>
+								</div>
 							</div>
+							<hr />
 						</div>
-						<hr />
+					</div>
+					<div className='envmap_container'>
+						{envmaps.map((envmap) => (
+							<button
+								key={envmap}
+								className={snap.envmap === envmap ? 'active' : ''}
+								onClick={() => {
+									state.envmap = envmap
+								}}
+							>
+								{envmap}
+							</button>
+						))}
 					</div>
 				</div>
 			</main>

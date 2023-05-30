@@ -36,12 +36,44 @@ export default function OuterShell(props) {
 		}
 	)
 
+	const purpleAlbedo = useTexture(
+		'/tex/outer-shell/helmet-outer-shell-albedo-purple.jpg',
+		(texture) => {
+			texture.flipY = false
+			texture.encoding = THREE.sRGBEncoding
+		}
+	)
+
+	const greyAlbedo = useTexture(
+		'/tex/outer-shell/helmet-outer-shell-albedo-grey.jpg',
+		(texture) => {
+			texture.flipY = false
+			texture.encoding = THREE.sRGBEncoding
+		}
+	)
+
+	const brownAlbedo = useTexture(
+		'/tex/outer-shell/helmet-outer-shell-albedo-brown.jpg',
+		(texture) => {
+			texture.flipY = false
+			texture.encoding = THREE.sRGBEncoding
+		}
+	)
+
 	const albedo =
 		snap.color === 'red'
 			? redAlbedo
 			: snap.color === 'blue'
 			? blueAlbedo
-			: greenAlbedo
+			: snap.color === 'green'
+			? greenAlbedo
+			: snap.color === 'purple'
+			? purpleAlbedo
+			: snap.color === 'grey'
+			? greyAlbedo
+			: snap.color === 'brown'
+			? brownAlbedo
+			: redAlbedo
 
 	const normal = useTexture(
 		'/tex/outer-shell/helmet-outer-shell-normal.webp',

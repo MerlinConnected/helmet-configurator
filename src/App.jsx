@@ -72,7 +72,7 @@ export default function App() {
 	const snap = useSnapshot(state)
 	return (
 		<>
-			<Canvas shadows camera={{ fov: 60, position: [0, 0, 2.1] }}>
+			<Canvas shadows camera={{ fov: 60, position: [0, 0, 1.8] }}>
 				<Suspense fallback={null}>
 					<Center>
 						<Float floatIntensity={0.3} rotationIntensity={0.4}>
