@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+public/tex/outer-shell/outer-shell-albedo-master.psd
+public/tex/outer-shell/Outer Shell_BaseColor.exr
