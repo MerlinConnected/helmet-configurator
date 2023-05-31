@@ -83,9 +83,9 @@ export default function App() {
 						<Backdrop />
 					</Center>
 					<ZoomWithOrbit />
+					<ambientLight intensity={1} />
+					<Environment preset={snap.envmap} />
 				</Suspense>
-				<ambientLight intensity={1} />
-				<Environment preset={snap.envmap} />
 			</Canvas>
 			<Overlay />
 			<Loader />
