@@ -6,6 +6,7 @@ main {
 	height: 100%;
 	z-index: 3;
 	top: 0;
+
 	header {
 		margin: rem(2) 0;
 		pointer-events: all;
@@ -78,11 +79,11 @@ main {
 						font-size: rem(0.9);
 						margin-top: rem(0.5);
 					}
-					&:first-of-type {
-						p {
-							text-transform: capitalize;
-						}
-					}
+					// &:first-of-type {
+					// 	p {
+					// 		text-transform: capitalize;
+					// 	}
+					// }
 					&:last-of-type {
 						> div {
 							&:first-of-type {
@@ -256,6 +257,36 @@ main {
 				&:hover {
 					transition: all 0.2s $ease;
 					border: 1px solid $color-light-darker;
+				}
+			}
+		}
+	}
+	footer {
+		bottom: rem(0.5);
+		position: absolute;
+
+		pointer-events: all;
+
+		width: 100%;
+		p {
+			margin-left: 50%;
+			transform: translateX(-50%);
+
+			width: fit-content;
+
+			font-family: 'Barlow Condensed';
+			font-style: normal;
+			font-weight: 300;
+			font-size: rem(0.8);
+
+			color: darken($color-light-darker, 20%);
+
+			a {
+				text-decoration: none;
+				display: inline-block;
+				&:hover {
+					text-decoration: underline;
+					color: $color-light;
 				}
 			}
 		}

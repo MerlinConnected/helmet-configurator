@@ -44,11 +44,18 @@ function Customizer() {
 	const [bellSticker, setBellSticker] = useState(false)
 	const [clearcoat, setClearcoat] = useState(false)
 
+	function openHideBig(e) {
+		const p = e.currentTarget.nextElementSibling
+		e.currentTarget.parentNode.classList.toggle('active')
+		p.offsetHeight === 0
+			? (p.style.maxHeight = `150px`)
+			: (p.style.maxHeight = 0)
+	}
 	function openHide(e) {
 		const p = e.currentTarget.nextElementSibling
 		e.currentTarget.parentNode.classList.toggle('active')
 		p.offsetHeight === 0
-			? (p.style.maxHeight = `${p.scrollHeight}px`)
+			? (p.style.maxHeight = `50px`)
 			: (p.style.maxHeight = 0)
 	}
 
@@ -80,10 +87,10 @@ function Customizer() {
 						<div className='grid'>
 							<hr />
 							<div className='content-container'>
-								<div onClick={openHide}>
+								<div onClick={openHideBig}>
 									<div>
 										<h3>Finish</h3>
-										<p>{snap.color}</p>
+										<p>Tip : Red makes you faster</p>
 									</div>
 								</div>
 								<div className='color-container'>
@@ -196,7 +203,11 @@ function Customizer() {
 								</div>
 								<div className='total-container'>
 									<button>Find a dealer</button>
-									<button>Add to basket</button>
+									<button>
+										<a href='https://gaetanjestin.com' target='_blank'>
+											Add to basket
+										</a>
+									</button>
 								</div>
 							</div>
 							<hr />
@@ -216,6 +227,18 @@ function Customizer() {
 						))}
 					</div>
 				</div>
+				<footer>
+					<p>
+						© 2023{' '}
+						<a href='https://gaetanjestin.com' target='_blank'>
+							Gaëtan Jestin
+						</a>
+						, Not affiliated in any ways with{' '}
+						<a href='https://www.bellhelmets.com/' target='_blank'>
+							Bell Helmets
+						</a>
+					</p>
+				</footer>
 			</main>
 		</>
 	)
