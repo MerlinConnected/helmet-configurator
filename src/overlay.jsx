@@ -44,6 +44,14 @@ function Customizer() {
 	const [bellSticker, setBellSticker] = useState(false)
 	const [clearcoat, setClearcoat] = useState(false)
 
+	function openHide(e) {
+		const p = e.currentTarget.nextElementSibling
+		e.currentTarget.parentNode.classList.toggle('active')
+		p.offsetHeight === 0
+			? (p.style.maxHeight = `${p.scrollHeight}px`)
+			: (p.style.maxHeight = 0)
+	}
+
 	return (
 		<>
 			<main>
@@ -72,8 +80,12 @@ function Customizer() {
 						<div className='grid'>
 							<hr />
 							<div className='content-container'>
-								<h3>Finish</h3>
-								<p>{snap.color}</p>
+								<div onClick={openHide}>
+									<div>
+										<h3>Finish</h3>
+										<p>{snap.color}</p>
+									</div>
+								</div>
 								<div className='color-container'>
 									{colors.map((color) => (
 										<button
@@ -90,8 +102,12 @@ function Customizer() {
 							</div>
 							<hr />
 							<div className='content-container'>
-								<h3>Aspect</h3>
-								<p>Chose between mat or shiny</p>
+								<div onClick={openHide}>
+									<div>
+										<h3>Aspect</h3>
+										<p>Chose between mat or shiny</p>
+									</div>
+								</div>
 								<div className='clearcoat-container'>
 									<button
 										className={clearcoat ? '' : 'active'}
@@ -120,8 +136,12 @@ function Customizer() {
 							onChange={(color) => (state.stitching = color)}
 						/> */}
 							<div className='content-container'>
-								<h3>Size</h3>
-								<p>To fit your noggin like a glove</p>
+								<div onClick={openHide}>
+									<div>
+										<h3>Size</h3>
+										<p>To fit your noggin like a glove</p>
+									</div>
+								</div>
 								<div className='size-container'>
 									{size.map((size) => (
 										<button
@@ -138,8 +158,12 @@ function Customizer() {
 							</div>
 							<hr />
 							<div className='content-container'>
-								<h3>Stickers</h3>
-								<p>To at least look like you're fast</p>
+								<div onClick={openHide}>
+									<div>
+										<h3>Stickers</h3>
+										<p>To at least look like you're fast</p>
+									</div>
+								</div>
 								<div className='clearcoat-container'>
 									<button
 										className={bellSticker ? 'active' : ''}

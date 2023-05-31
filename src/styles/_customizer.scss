@@ -55,6 +55,20 @@ main {
 					border-top: 1px solid $color-dark-lighter;
 				}
 				.content-container {
+					> div {
+						&:first-of-type {
+							display: flex;
+							justify-content: space-between;
+							cursor: pointer;
+							&::after {
+								content: '-';
+								font-size: 2.5rem;
+								font-weight: 100;
+								color: $color-light;
+								margin-right: rem(1);
+							}
+						}
+					}
 					h3 {
 						color: $color-light;
 					}
@@ -67,6 +81,29 @@ main {
 					&:first-of-type {
 						p {
 							text-transform: capitalize;
+						}
+					}
+					&:last-of-type {
+						> div {
+							&:first-of-type {
+								cursor: text;
+								&::after {
+									all: unset;
+								}
+							}
+						}
+					}
+					&.active {
+						> div {
+							&:nth-child(1) {
+								&::after {
+									content: '+';
+								}
+							}
+							&:nth-child(2) {
+								margin-top: rem(1);
+								opacity: 1;
+							}
 						}
 					}
 					button {
@@ -109,7 +146,10 @@ main {
 						grid-template-columns: repeat(3, 1fr);
 						grid-gap: rem(0.5);
 
-						margin-top: rem(1);
+						max-height: 0;
+						overflow: hidden;
+						opacity: 0;
+						transition: all 0.4s $ease2;
 						button {
 							img {
 								margin: auto;
@@ -121,7 +161,10 @@ main {
 						grid-template-columns: repeat(2, 1fr);
 						grid-gap: rem(1.5);
 
-						margin-top: rem(1);
+						max-height: 0;
+						overflow: hidden;
+						opacity: 0;
+						transition: all 0.4s $ease2;
 						button {
 							color: $color-light-darker;
 							font-size: rem(0.8);
@@ -139,7 +182,10 @@ main {
 						grid-template-columns: repeat(6, 1fr);
 						grid-gap: rem(0.3);
 
-						margin-top: rem(1);
+						max-height: 0;
+						overflow: hidden;
+						opacity: 0;
+						transition: all 0.4s $ease2;
 						button {
 							color: $color-light-darker;
 							font-size: rem(0.8);
@@ -182,14 +228,12 @@ main {
 			}
 		}
 		.envmap_container {
-			display: grid;
-			grid-gap: rem(2);
-			align-content: center;
-			align-items: center;
+			display: flex;
+			grid-gap: 2rem;
+			width: fit-content;
+			flex-direction: column;
 
-			width: unset;
 			button {
-				width: 100%;
 				height: rem(4);
 
 				padding: rem(0.5) rem(1);
