@@ -42,37 +42,11 @@ function Backdrop() {
 	)
 }
 
-function ZoomWithOrbit() {
-	const { gl, camera } = useThree()
-	useSpring({
-		from: { z: 30 },
-		x: -5,
-		y: 4,
-		z: 4,
-		onFrame: ({ x, y, z }) => {
-			camera.position.x = x
-			camera.position.y = y
-			camera.position.z = z
-		},
-	})
-	return (
-		<OrbitControls
-			enablePan={false}
-			minPolarAngle={0}
-			maxPolarAngle={Math.PI / 1.8}
-			minDistance={1.5}
-			maxDistance={2.5}
-			target={[0, 0, 0]}
-			args={[camera, gl.domElement]}
-		/>
-	)
-}
-
 export default function App() {
 	const snap = useSnapshot(state)
 	return (
 		<>
-			<Canvas shadows camera={{ fov: 60, position: [0, 0, 1.8] }}>
+			<Canvas shadows camera={{ fov: 60, position: [0, -0.2, 1.8] }}>
 				<Suspense fallback={null}>
 					<Center>
 						<Float floatIntensity={0.3} rotationIntensity={0.4}>
@@ -82,7 +56,14 @@ export default function App() {
 						</Float>
 						<Backdrop />
 					</Center>
-					<ZoomWithOrbit />
+					<OrbitControls
+						enablePan={false}
+						minPolarAngle={0}
+						maxPolarAngle={Math.PI / 1.8}
+						minDistance={1.5}
+						maxDistance={2.5}
+						target={[0, 0, 0]}
+					/>
 					<ambientLight intensity={1} />
 					<Environment preset={snap.envmap} />
 				</Suspense>
