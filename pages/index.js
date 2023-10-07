@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Overlay from '../components/overlay/overlay'
+import Overlay from '../components/overlay/Overlay'
 import Model from '../components/model/Model'
 
 export default function Home() {
