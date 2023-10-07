@@ -1,5 +1,5 @@
 import { useSnapshot } from 'valtio'
-import { state } from './store'
+import { state } from '../../utils/store'
 import { HexColorPicker } from 'react-colorful'
 import { useState } from 'react'
 
@@ -47,16 +47,12 @@ function Customizer() {
 	function openHideBig(e) {
 		const p = e.currentTarget.nextElementSibling
 		e.currentTarget.parentNode.classList.toggle('active')
-		p.offsetHeight === 0
-			? (p.style.maxHeight = `150px`)
-			: (p.style.maxHeight = 0)
+		p.offsetHeight === 0 ? (p.style.maxHeight = `150px`) : (p.style.maxHeight = 0)
 	}
 	function openHide(e) {
 		const p = e.currentTarget.nextElementSibling
 		e.currentTarget.parentNode.classList.toggle('active')
-		p.offsetHeight === 0
-			? (p.style.maxHeight = `50px`)
-			: (p.style.maxHeight = 0)
+		p.offsetHeight === 0 ? (p.style.maxHeight = `50px`) : (p.style.maxHeight = 0)
 	}
 
 	return (
@@ -78,10 +74,8 @@ function Customizer() {
 						<div className='title-container'>
 							<h2>CONFIGURE YOUR RACE STAR DLX FLEX</h2>
 							<p>
-								Designed for the everyday commuter who likes to chase checkers
-								on the weekend, the Race Star DLX Flex packs premium head
-								protection with a modern aesthetic that simply makes you look
-								fast.
+								Designed for the everyday commuter who likes to chase checkers on the weekend, the Race Star DLX Flex
+								packs premium head protection with a modern aesthetic that simply makes you look fast.
 							</p>
 						</div>
 						<div className='grid'>

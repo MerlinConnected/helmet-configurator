@@ -6,7 +6,7 @@ import {
 	AccumulativeShadows,
 	RandomizedLight,
 	Float,
-	Loader,
+	Loader
 } from '@react-three/drei'
 
 import { Suspense } from 'react'
@@ -17,32 +17,18 @@ import OuterShell from './OuterShell'
 import Insides from './Insides'
 import Visor from './Visor'
 
-import Overlay from './overlay'
-
-import { state } from './store'
+import { state } from '../../utils/store'
 import { useSnapshot } from 'valtio'
 
 function Backdrop() {
 	return (
-		<AccumulativeShadows
-			temporal
-			frames={60}
-			alphaTest={0.85}
-			scale={10}
-			position={[0, -0.22, 0]}
-		>
-			<RandomizedLight
-				amount={12}
-				radius={20}
-				intensity={0.9}
-				ambient={5}
-				position={[5, 5, -10]}
-			/>
+		<AccumulativeShadows temporal frames={60} alphaTest={0.85} scale={10} position={[0, -0.22, 0]}>
+			<RandomizedLight amount={12} radius={20} intensity={0.9} ambient={5} position={[5, 5, -10]} />
 		</AccumulativeShadows>
 	)
 }
 
-export default function App() {
+export default function Model() {
 	const snap = useSnapshot(state)
 	return (
 		<>
@@ -68,7 +54,6 @@ export default function App() {
 					<Environment preset={snap.envmap} />
 				</Suspense>
 			</Canvas>
-			<Overlay />
 			<Loader />
 		</>
 	)

@@ -4,7 +4,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 
 import { proxy, useSnapshot } from 'valtio'
-import { state } from './store'
+import { state } from '../../utils/store'
 
 export default function Insides(props) {
 	const snap = useSnapshot(state)
@@ -12,47 +12,32 @@ export default function Insides(props) {
 
 	//INSIDE FABRIC
 
-	const insideFabricAlbedo = useTexture(
-		'/tex/inside-fabric/helmet-inside-fabric-albedo.webp',
-		(texture) => {
-			texture.flipY = false
-			texture.encoding = THREE.sRGBEncoding
-		}
-	)
-	const insideFabricNormal = useTexture(
-		'/tex/inside-fabric/helmet-inside-fabric-normal.webp',
-		(texture) => {
-			texture.flipY = false
-			texture.encoding = THREE.sRGBEncoding
-		}
-	)
+	const insideFabricAlbedo = useTexture('/tex/inside-fabric/helmet-inside-fabric-albedo.webp', (texture) => {
+		texture.flipY = false
+		texture.encoding = THREE.sRGBEncoding
+	})
+	const insideFabricNormal = useTexture('/tex/inside-fabric/helmet-inside-fabric-normal.webp', (texture) => {
+		texture.flipY = false
+		texture.encoding = THREE.sRGBEncoding
+	})
 
 	//OUTSIDE FABRIC
 
-	const outsideFabricAlbedo = useTexture(
-		'/tex/outside-fabric/helmet-outside-fabric-albedo.webp',
-		(texture) => {
-			texture.flipY = false
-			texture.encoding = THREE.sRGBEncoding
-		}
-	)
-	const outsideFabricNormal = useTexture(
-		'/tex/outside-fabric/helmet-outside-fabric-normal.webp',
-		(texture) => {
-			texture.flipY = false
-			texture.encoding = THREE.sRGBEncoding
-		}
-	)
+	const outsideFabricAlbedo = useTexture('/tex/outside-fabric/helmet-outside-fabric-albedo.webp', (texture) => {
+		texture.flipY = false
+		texture.encoding = THREE.sRGBEncoding
+	})
+	const outsideFabricNormal = useTexture('/tex/outside-fabric/helmet-outside-fabric-normal.webp', (texture) => {
+		texture.flipY = false
+		texture.encoding = THREE.sRGBEncoding
+	})
 
 	//SHELL PLASTICS
 
-	const shellPlasticRoughness = useTexture(
-		'/tex/shell-plastics/helmet-shell-plastics-roughness.webp',
-		(texture) => {
-			texture.flipY = false
-			texture.encoding = THREE.sRGBEncoding
-		}
-	)
+	const shellPlasticRoughness = useTexture('/tex/shell-plastics/helmet-shell-plastics-roughness.webp', (texture) => {
+		texture.flipY = false
+		texture.encoding = THREE.sRGBEncoding
+	})
 
 	return (
 		<group {...props} dispose={null}>
@@ -62,37 +47,18 @@ export default function Insides(props) {
 			</mesh>
 			{/* Inside Shell */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_1.geometry}>
-				<meshPhysicalMaterial
-					color={'#020202'}
-					roughness={0.6}
-					metalness={0}
-					side={THREE.DoubleSide}
-				/>
+				<meshPhysicalMaterial color={'#020202'} roughness={0.6} metalness={0} side={THREE.DoubleSide} />
 			</mesh>
 			{/* Plastics */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_2.geometry}>
-				<meshPhysicalMaterial
-					color={'#020202'}
-					roughness={0.6}
-					side={THREE.DoubleSide}
-				/>
+				<meshPhysicalMaterial color={'#020202'} roughness={0.6} side={THREE.DoubleSide} />
 			</mesh>
 			{/* Black Metal */}
 			<mesh castShadow receiveShadow geometry={nodes.insides_3.geometry}>
-				<meshPhysicalMaterial
-					color={'#020202'}
-					metalness={1}
-					roughness={0.2}
-					side={THREE.DoubleSide}
-				/>
+				<meshPhysicalMaterial color={'#020202'} metalness={1} roughness={0.2} side={THREE.DoubleSide} />
 			</mesh>
 			{/* Springs */}
-			<mesh
-				castShadow
-				receiveShadow
-				geometry={nodes.insides_4.geometry}
-				material={materials.Spring}
-			/>
+			<mesh castShadow receiveShadow geometry={nodes.insides_4.geometry} material={materials.Spring} />
 			{/* Rubber */}
 			<mesh
 				castShadow

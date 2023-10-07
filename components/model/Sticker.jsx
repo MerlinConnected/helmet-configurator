@@ -1,6 +1,6 @@
 import { Decal, useTexture } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
-import { state } from './store'
+import { state } from '../../utils/store'
 
 function BellSticker() {
 	const snap = useSnapshot(state)
@@ -9,11 +9,7 @@ function BellSticker() {
 
 	if (snap.bellSticker) {
 		return (
-			<Decal
-				position={[0, 0.75, 0.35]}
-				scale={0.3}
-				rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}
-			>
+			<Decal position={[0, 0.75, 0.35]} scale={0.3} rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}>
 				<meshPhysicalMaterial
 					transparent
 					polygonOffset
@@ -29,11 +25,7 @@ function BellSticker() {
 		)
 	} else {
 		return (
-			<Decal
-				position={[0, 0.75, 0.35]}
-				scale={0}
-				rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}
-			>
+			<Decal position={[0, 0.75, 0.35]} scale={0} rotation={[-Math.PI / Math.PI, Math.PI, Math.PI]}>
 				<meshPhysicalMaterial
 					transparent
 					polygonOffset
@@ -60,11 +52,7 @@ function RedBullSticker() {
 	if (snap.redBullSticker) {
 		return (
 			<>
-				<Decal
-					position={[0.4, 0.03, 0.35]}
-					scale={0.42}
-					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
-				>
+				<Decal position={[0.4, 0.03, 0.35]} scale={0.42} rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}>
 					<meshPhysicalMaterial
 						transparent
 						polygonOffset
@@ -80,11 +68,7 @@ function RedBullSticker() {
 					/>
 				</Decal>
 
-				<Decal
-					position={[-0.4, 0.03, 0.35]}
-					scale={0.42}
-					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
-				>
+				<Decal position={[-0.4, 0.03, 0.35]} scale={0.42} rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}>
 					<meshPhysicalMaterial
 						transparent
 						polygonOffset
@@ -104,11 +88,7 @@ function RedBullSticker() {
 	} else {
 		return (
 			<>
-				<Decal
-					position={[0.4, 0.03, 0.35]}
-					scale={0}
-					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
-				>
+				<Decal position={[0.4, 0.03, 0.35]} scale={0} rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}>
 					<meshPhysicalMaterial
 						transparent
 						polygonOffset
@@ -124,11 +104,7 @@ function RedBullSticker() {
 					/>
 				</Decal>
 
-				<Decal
-					position={[-0.4, 0.03, 0.35]}
-					scale={0}
-					rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}
-				>
+				<Decal position={[-0.4, 0.03, 0.35]} scale={0} rotation={[Math.PI / 1.42, Math.PI / 2, Math.PI / 3]}>
 					<meshPhysicalMaterial
 						transparent
 						polygonOffset
