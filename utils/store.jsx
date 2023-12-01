@@ -5,10 +5,10 @@ const state = proxy({
 	color: 'purple',
 	size: 'M',
 	clearcoat: true,
-	envmap: 'city',
+	envmap: '/env/potsdamer_platz_1k.hdr',
 	stitching: '#595959',
 	bellSticker: false,
-	redBullSticker: false,
+	redBullSticker: false
 })
 
 export { state }

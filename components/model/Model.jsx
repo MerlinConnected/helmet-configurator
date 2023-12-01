@@ -51,7 +51,7 @@ export default function Model() {
 						target={[0, 0, 0]}
 					/>
 					<ambientLight intensity={1} />
-					<Environment preset={snap.envmap} />
+					<Environment files={snap.envmap} />
 				</Suspense>
 			</Canvas>
 			<Loader />

@@ -34,7 +34,14 @@ function Intro() {
 }
 
 function Customizer() {
-	const envmaps = ['sunset', 'warehouse', 'forest', 'studio', 'city', 'park']
+	const envmaps = [
+		'/env/venice_sunset_1k.hdr',
+		'/env/empty_warehouse_01_1k.hdr',
+		'/env/forest_slope_1k.hdr',
+		'/env/studio_small_03_1k.hdr',
+		'/env/potsdamer_platz_1k.hdr',
+		'/env/rooitou_park_1k.hdr'
+	]
 	const colors = ['grey', 'green', 'red', 'blue', 'brown', 'purple']
 	const size = ['XS', 'S', 'SM', 'M', 'L', 'XL']
 
@@ -131,11 +138,6 @@ function Customizer() {
 								</div>
 							</div>
 							<hr />
-							{/* <HexColorPicker
-							className='picker'
-							color={snap.stitching}
-							onChange={(color) => (state.stitching = color)}
-						/> */}
 							<div className='content-container'>
 								<div onClick={openHide}>
 									<div>
@@ -161,7 +163,7 @@ function Customizer() {
 							<div className='content-container'>
 								<div onClick={openHide}>
 									<div>
-										<h3>Stickers</h3>
+										<h3>Decals</h3>
 										<p>To at least look like you're fast</p>
 									</div>
 								</div>
@@ -216,7 +218,12 @@ function Customizer() {
 									state.envmap = envmap
 								}}
 							>
-								{envmap}
+								{envmap === '/env/venice_sunset_1k.hdr' ? 'Venice Sunset' : ''}
+								{envmap === '/env/empty_warehouse_01_1k.hdr' ? 'Empty Warehouse' : ''}
+								{envmap === '/env/forest_slope_1k.hdr' ? 'Forest Slope' : ''}
+								{envmap === '/env/studio_small_03_1k.hdr' ? 'Studio Small' : ''}
+								{envmap === '/env/potsdamer_platz_1k.hdr' ? 'Potsdamer Platz' : ''}
+								{envmap === '/env/rooitou_park_1k.hdr' ? 'Rooitou Park' : ''}
 							</button>
 						))}
 					</div>
