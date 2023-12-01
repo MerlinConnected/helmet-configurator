@@ -8,6 +8,7 @@ export default function Home() {
 			<Head>
 				<title>Helmet Configurator NextJS & R3F</title>
 				<meta name='description' content='To be written.' />
+				<meta name='theme-color' content='#000000' />
 			</Head>
 
 			<Model />
