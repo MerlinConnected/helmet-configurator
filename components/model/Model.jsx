@@ -23,7 +23,7 @@ import { useSnapshot } from 'valtio'
 function Backdrop() {
 	return (
 		<AccumulativeShadows temporal frames={60} alphaTest={0.85} scale={10} position={[0, -0.22, 0]}>
-			<RandomizedLight amount={12} radius={20} intensity={0.9} ambient={5} position={[5, 5, -10]} />
+			<RandomizedLight amount={12} radius={20} ambient={5} position={[5, 5, -10]} />
 		</AccumulativeShadows>
 	)
 }

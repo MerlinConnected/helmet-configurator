@@ -14,29 +14,29 @@ export default function Insides(props) {
 
 	const insideFabricAlbedo = useTexture('/tex/inside-fabric/helmet-inside-fabric-albedo.webp', (texture) => {
 		texture.flipY = false
-		texture.encoding = THREE.sRGBEncoding
+		texture.colorSpace = THREE.SRGBColorSpace
 	})
 	const insideFabricNormal = useTexture('/tex/inside-fabric/helmet-inside-fabric-normal.webp', (texture) => {
 		texture.flipY = false
-		texture.encoding = THREE.sRGBEncoding
+		texture.colorSpace = THREE.SRGBColorSpace
 	})
 
 	//OUTSIDE FABRIC
 
 	const outsideFabricAlbedo = useTexture('/tex/outside-fabric/helmet-outside-fabric-albedo.webp', (texture) => {
 		texture.flipY = false
-		texture.encoding = THREE.sRGBEncoding
+		texture.colorSpace = THREE.SRGBColorSpace
 	})
 	const outsideFabricNormal = useTexture('/tex/outside-fabric/helmet-outside-fabric-normal.webp', (texture) => {
 		texture.flipY = false
-		texture.encoding = THREE.sRGBEncoding
+		texture.colorSpace = THREE.SRGBColorSpace
 	})
 
 	//SHELL PLASTICS
 
 	const shellPlasticRoughness = useTexture('/tex/shell-plastics/helmet-shell-plastics-roughness.webp', (texture) => {
 		texture.flipY = false
-		texture.encoding = THREE.sRGBEncoding
+		texture.colorSpace = THREE.SRGBColorSpace
 	})
 
 	return (
