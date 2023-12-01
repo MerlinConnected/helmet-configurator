@@ -11,8 +11,6 @@ import {
 
 import { Suspense } from 'react'
 
-import { useSpring } from '@react-spring/three'
-
 import OuterShell from './OuterShell'
 import Insides from './Insides'
 import Visor from './Visor'
